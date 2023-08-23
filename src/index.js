@@ -22,12 +22,13 @@ axios.interceptors.response.use(
     return res; //returning back to ui
   },
   function (err) {
-    if (err.response.status === 401) {
+    if (err.response.data.message === "Unauthorized!") {
       //once we clear the local storage then reload manually then authenticate route (useAuth) will figure out redirect to login page
       localStorage.clear();
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      setTimeout(()=>{
+        window.location.reload()
+      },3000)
+     console.log(err)
       toast("Session Timed Out Logging Out");
       return Promise.reject(err); //returning back to ui
     } else {
@@ -36,6 +37,7 @@ axios.interceptors.response.use(
     }
   }
 );
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

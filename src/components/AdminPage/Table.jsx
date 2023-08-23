@@ -91,7 +91,7 @@ function AdminTable() {
       (item) =>
         item.userType === "ENGINEER" &&
         item.userStatus === "APPROVED" &&
-        result.push(item.name)
+        result.push(item.id)
     );
     setAllEngineersNames(result);
   };
