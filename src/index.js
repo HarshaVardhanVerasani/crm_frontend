@@ -28,7 +28,6 @@ axios.interceptors.response.use(
       setTimeout(()=>{
         window.location.reload()
       },3000)
-     console.log(err)
       toast("Session Timed Out Logging Out");
       return Promise.reject(err); //returning back to ui
     } else {
