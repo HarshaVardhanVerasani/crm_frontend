@@ -7,7 +7,6 @@ import "./styles.css";
 function SignUpPage({ handleSignUp }) {
   const [formData, setData] = useState({
     name: "",
-    userId: "",
     email: "",
     password: "",
     userType: "",
@@ -58,12 +57,12 @@ function SignUpPage({ handleSignUp }) {
       ">",
     ];
     if (formData.password === "") {
-      toast.info("Please create your password", { position: "top-center" });
+      toast.info("Please Create Your Password", { position: "top-center" });
       return;
     }
 
     if (formData.password.length < 8) {
-      toast.info("Password must be 8 characters", { position: "top-center" });
+      toast.info("Password Must Be 8 Characters", { position: "top-center" });
       return;
     }
 
@@ -91,25 +90,25 @@ function SignUpPage({ handleSignUp }) {
     }
 
     if (lowerCaseLetter === 0) {
-      toast.info("Password must contain small letter", {
+      toast.warn("Password Must Contain Small Letter", {
         position: "top-center",
       });
       return;
     }
     if (upperCaseLetter === 0) {
-      toast.info("Password must contain capital letter", {
+      toast.warn("Password Must Contain Capital Letter", {
         position: "top-center",
       });
       return;
     }
 
     if (number === 0) {
-      toast.info("Password must contain number", { position: "top-center" });
+      toast.warn("Password Must Contain Number", { position: "top-center" });
       return;
     }
 
     if (specialCharacter === 0) {
-      toast.info("Password must contain special letter", {
+      toast.info("Password Must Contain Special Letter", {
         position: "top-center",
       });
       return;
@@ -123,20 +122,13 @@ function SignUpPage({ handleSignUp }) {
     e.preventDefault();
     if (formData.name.length < 4) {
       toast.info(
-        "Please fill out user name field it should be more than 4 characters",
-        {
-          position: "top-center",
-        }
-      );
-    } else if (formData.userId.length < 4) {
-      toast.info(
-        "Please fill out user Id and it should be more than 4 characters",
+        "Please fill Out User Name & should Be More Than 4 Characters",
         {
           position: "top-center",
         }
       );
     } else if (formData.email.length === 0) {
-      toast.info("Email field Cannot be empty", {
+      toast.info("Email Field Is Empty", {
         position: "top-center",
       });
     } else if (!IS_VALID_PASSWORD) {
@@ -150,7 +142,7 @@ function SignUpPage({ handleSignUp }) {
         const { data } = await axios.post(
           `${BASE_URL}/crm/api/v1/auth/signup`,
           {
-            userId: formData.userId,
+            userId: formData.name,
             name: formData.name,
             email: formData.email,
             password: formData.password,
@@ -159,11 +151,15 @@ function SignUpPage({ handleSignUp }) {
         );
         console.log(data);
         toast.success(
-          "Account Creation Successful Please Login With Your Credentials"
+          "Account Creation Successful Please Login With Your Credentials",{
+            position:"top-left"
+          }
         );
+
+        //going back to login page by executing below function
         handleSignUp();
       } catch (error) {
-        toast(`${error.response.data.message}`);
+        toast(error.response.data.message);
       }
     }
   };
@@ -188,20 +184,7 @@ function SignUpPage({ handleSignUp }) {
               required
               onChange={(e) => getFormData(e)}
             />
-            <label htmlFor="user-id" className="form-label mt-3">
-              User ID
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="user-id"
-              name="userId"
-              placeholder="ex: spongbob"
-              value={formData.userId}
-              maxLength={20}
-              required
-              onChange={(e) => getFormData(e)}
-            />
+
             <label htmlFor="user-email" className="form-label mt-3">
               Email
             </label>
