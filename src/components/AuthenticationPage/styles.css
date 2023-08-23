@@ -1,0 +1,43 @@
+.loginPage,
+.signUp {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPage {
+  background-color: burlywood;
+}
+
+.signUp {
+  background-color: lightpink;
+}
+
+.login-wrapper,
+.signUpWrapper {
+  padding: 1.2rem;
+  background-color: white;
+  border-radius: 1rem;
+  width: 320px;
+}
+
+.signUpWrapper {
+  width: 350px;
+}
+
+.signUpLink {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: rgb(0, 153, 255);
+  transition: all 400ms eases;
+  padding-bottom: 0.2rem;
+}
+
+.signUpLink:hover {
+  font-weight: 500;
+  border-bottom-color: rgb(0, 153, 255);
+}
+
+

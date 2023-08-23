@@ -1,0 +1,23 @@
+.sidebar-wrapper .nav-item a,
+.sidebar-wrapper .nav-heading a {
+  color: black !important;
+  text-decoration: none;
+  padding: 0.4rem;
+  transition: all 400ms ease;
+  border-radius: 0.5rem;
+}
+
+.sidebar-wrapper .nav-heading a:hover {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.sidebar-wrapper .nav-item a:hover {
+  cursor: pointer;
+  background-color: rgb(18, 168, 179);
+  color: white !important;
+}
+
+.offcanvas {
+  background-color:rgb(218, 244, 248);
+}

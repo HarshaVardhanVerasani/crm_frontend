@@ -1,0 +1,30 @@
+
+/* mui table css overriding */
+.engineerTable .MuiTablePagination-selectLabel,
+.engineerTable .MuiTablePagination-displayedRows {
+  margin: 0;
+}
+
+.engineerTable {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .engineerTable {
+    width: 97%;
+    overflow: hidden;
+  }
+}
+
+.engineerTable .MuiTableHead-root th {
+  font-weight: 700;
+  background-color: rgba(220, 220, 220, 0.201);
+}
+
+/* over riding material ui css with same class name */
+.engineerTable .css-1mbunh-MuiPaper-root {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
